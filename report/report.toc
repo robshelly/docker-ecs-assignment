@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Docker}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}RabbitMQ Container}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Send and Receive Containers}{1}{subsection.1.2}
+\contentsline {section}{\numberline {2}AWS EC2 Container Service}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Setting up the ECS}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Load Balancing}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Service}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Application Autoscaling}{7}{subsection.2.4}
+\contentsline {section}{\numberline {3}Service Discovery}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Setting up the System}{9}{subsection.3.1}
+\contentsline {section}{\numberline {4}Conclusion}{11}{section.4}
+\contentsline {section}{\numberline {A}Dockerfile for Send Container}{12}{Appendix.1.A}
+\contentsline {section}{\numberline {B}Python Script to Send Messages}{12}{Appendix.1.B}
+\contentsline {section}{\numberline {C}Dockerfile for Receive Container}{13}{Appendix.1.C}
+\contentsline {section}{\numberline {D}Python Script to Receive Messages}{13}{Appendix.1.D}
+\contentsline {section}{\numberline {E}User Data}{14}{Appendix.1.E}
+\contentsline {section}{\numberline {F}Task Defninition}{15}{Appendix.1.F}

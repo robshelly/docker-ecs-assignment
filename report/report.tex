@@ -1,0 +1,68 @@
+\documentclass[]{article}
+
+
+% Increase text width
+\usepackage[left=48pt,right=46pt]{geometry}
+
+% Grahpics Stuff
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{ {images/} }
+
+% Bibliography stuff
+\usepackage[round]{natbib}
+% Adds bibliography to toc
+\usepackage[nottoc,numbib]{tocbibind} 
+
+% Makes toc, urls, figure links
+\usepackage{hyperref}
+
+% Format hyperlinks nicer than default way
+\usepackage{xcolor}
+\hypersetup{colorlinks,linkcolor={blue!80!black},citecolor={blue!80!black},urlcolor={blue!80!black}}
+
+% For inserting code blocks
+\usepackage{listings}
+\lstset{
+	showstringspaces=false,
+	basicstyle=\ttfamily,
+	columns=fullflexible,
+	breaklines=true,
+	postbreak=\mbox{\space},
+}
+
+
+\usepackage[title]{appendix}
+
+% Title Page
+\title{Docker and AWS Container Exercise\\
+	Cloud Technology}
+\author{Rob Shelly\\
+	Applied Computing\\
+	20068406}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+\pagenumbering{roman}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\include{body/docker}
+\include{body/ecs}
+\include{body/service-discovery}
+\include{body/conclusion}
+
+\begin{appendices}
+\include{appendix/send-dockerfile}
+\include{appendix/receive-dockerfile}
+\include{appendix/user-data}
+\include{appendix/task-definition}
+\end{appendices}
+
+\end{document}
+
+

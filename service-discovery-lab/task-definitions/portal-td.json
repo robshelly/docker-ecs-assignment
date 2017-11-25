@@ -1,0 +1,18 @@
+{
+  "family": "portal",
+  "containerDefinitions": [
+    {
+      "name": "portal",
+      "image": "<docker registry>/portal",
+      "cpu": 100,
+      "memory": 200,
+      "portMappings": [
+        {
+          "containerPort": 4567,
+          "hostPort": 80
+        }
+      ],
+      "essential": true
+    }
+  ]
+}

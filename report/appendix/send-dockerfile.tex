@@ -1,0 +1,32 @@
+\section{Dockerfile for Send Container} \label{send-dockerfile}
+\begin{lstlisting}
+FROM python:2
+
+RUN pip install pika
+
+ADD send.py /code/send.py
+ARG rabbitmq_ip
+RUN sed -i s/rabbitmq_ip/$rabbitmq_ip/g /code/send.py
+\end{lstlisting}
+
+\section{Python Script to Send Messages} \label{send-script}
+\begin{lstlisting}[language=python]
+#!/usr/bin/env python
+import pika
+
+
+# Need ip address of RabbitMQ container
+connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq_ip'))
+channel = connection.channel()
+
+
+channel.queue_declare(queue='hello')
+
+
+channel.basic_publish(exchange='',
+routing_key='hello',
+body='Hello World!')
+print(" [x] Sent 'Hello World!'")
+
+connection.close()
+\end{lstlisting}

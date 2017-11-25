@@ -1,0 +1,35 @@
+{
+  "family": "stock-price",
+  "containerDefinitions": [
+    {
+      "environment": [
+        {
+          "name": "SERVICE_4567_NAME",
+          "value": "stock-price"
+        },
+        {
+          "name": "SERVICE_4567_CHECK_HTTP",
+          "value": "/health"
+        },
+        {
+          "name": "SERVICE_4567_CHECK_INTERVAL",
+          "value": "10s"
+        },
+        {
+          "name": "SERVICE_TAGS",
+          "value": "http"
+        }
+      ],
+      "name": "stock-price",
+      "image": "<docker registry>/stock-price",
+      "cpu": 100,
+      "memory": 200,
+      "portMappings": [
+        {
+          "containerPort": 4567
+        }
+      ],
+      "essential": true
+    }
+  ]
+}

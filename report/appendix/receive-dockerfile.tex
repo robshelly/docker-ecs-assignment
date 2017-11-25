@@ -1,0 +1,35 @@
+\section{Dockerfile for Receive Container} \label{receive-dockerfile}
+\begin{lstlisting}
+FROM python:2
+
+RUN pip install pika
+
+ADD receive.py /code/receive.py
+ARG rabbitmq_ip
+RUN sed -i s/rabbitmq_ip/$rabbitmq_ip/g /code/receive.py
+\end{lstlisting}
+
+\section{Python Script to Receive Messages} \label{receive-script}
+\begin{lstlisting}[language=python]
+#!/usr/bin/env python
+import pika
+
+
+# Need ip address of RabbitMQ container
+connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq_ip'))
+channel = connection.channel()
+
+
+channel.queue_declare(queue='hello')
+
+def callback(ch, method, properties, body):
+print(" [x] Received %r" % body)
+
+
+channel.basic_consume(callback,
+queue='hello',
+no_ack=True)
+
+print(' [*] Waiting for messages. To exit press CTRL+C')
+channel.start_consuming()
+\end{lstlisting}
